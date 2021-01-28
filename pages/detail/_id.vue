@@ -1,9 +1,12 @@
 <template>
-  <div>
-    <h1>商品詳細</h1>
+  <div class="wrap">
+    <Header></Header>
+    <div class="title">
+      <h1>商品詳細</h1>
+    </div>
     {{item}}
   </div>
-  
+
 </template>
 
 <script>
@@ -42,4 +45,7 @@ export default {
 }
 </script>
 
- 
+<style lang="scss" scoped>
+
+</style>
+

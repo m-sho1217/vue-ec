@@ -1,0 +1,222 @@
+$fontFamilySet0: "游ゴシック体", "Yu Gothic", "YuGothic", "ヒラギノ角ゴ Pro W3",
+  "Hiragino Kaku Gothic Pro", "Meiryo", "メイリオ", "ＭＳ Ｐゴシック",
+  "MS PGothic", sans-serif;
+$fontFamilySet1: "Noto Sans CJK JP", "Noto Sans JP", "ヒラギノ角ゴ Pro W3",
+  "Hiragino Kaku Gothic Pro", "游ゴシック体", "Yu Gothic", "YuGothic", "Meiryo",
+  "メイリオ", "ＭＳ Ｐゴシック", "MS PGothic", Verdana, Roboto, "Droid Sans",
+  sans-serif;
+
+$ease1: cubic-bezier(0.215, 0.61, 0.355, 1);
+
+// $minWidth:1000px;
+
+$colorBlue: #097ce0;
+$colorWhite: #ffffff;
+$colorGray: #404040;
+$colorGray2: #e5e5e5;
+$colorBlack: #000000;
+$colorBlack2: #030303;
+
+// breakpoint
+$mqMd: 769;
+$mqSm: 768;
+
+//design base size
+$mqPcBase: 1440;
+$mqSpBase: 375;
+
+// $mqSmall: 750px;
+// $mqTablet: 1028px;
+// $mqMiddle: 1366px;
+// $mqLarge: 1600px;
+// $mqMaxLarge: 1920px;
+
+//vw vw 指定
+@mixin mqPcVwSpVw($prop, $numberPc, $numberSp) {
+  // margin: 10 10 0みたいなケース
+  @if (type-of($numberPc) == list) {
+    // PC
+    @media all and (min-width: $mqMd*1px) {
+      $pxNumber: ();
+      @for $i from 1 through length($numberPc) {
+        @if (type-of(nth($numberPc, $i)) == number) {
+          $pxNumber: append($pxNumber, nth($numberPc, $i) / $mqPcBase * 100vw);
+        } @else {
+          $pxNumber: append($pxNumber, nth($numberPc, $i));
+        }
+      }
+      #{$prop}: $pxNumber;
+    }
+    // TAB
+    @media all and (min-width: $mqSm*1px) and (max-width: $mqMd*1px) {
+      $pxNumber: ();
+      @for $i from 1 through length($numberPc) {
+        @if (type-of(nth($numberPc, $i)) == number) {
+          $pxNumber: append(
+            $pxNumber,
+            nth($numberPc, $i) * ($mqMd/$mqPcBase) * 1px
+          );
+        } @else {
+          $pxNumber: append($pxNumber, nth($numberPc, $i));
+        }
+      }
+      #{$prop}: $pxNumber;
+    }
+    //SP
+    @media all and (max-width: ($mqSm - 1)*1px) {
+      $vwNumber: ();
+      @for $i from 1 through length($numberSp) {
+        @if (type-of(nth($numberSp, $i)) == number) {
+          $vwNumber: append($vwNumber, nth($numberSp, $i) / $mqSpBase * 100vw);
+        } @else {
+          $vwNumber: append($vwNumber, nth($numberSp, $i));
+        }
+      }
+      #{$prop}: $vwNumber;
+    }
+  }
+  // font-size: 10 みたいなケース
+  @else {
+    @media all and (min-width: $mqMd*1px) {
+      #{$prop}: $numberPc/$mqPcBase * 100vw;
+    }
+    @media all and (min-width: $mqSm*1px) and (max-width: $mqMd*1px) {
+      #{$prop}: $numberPc * ($mqMd/$mqPcBase) * 1px;
+    }
+    @media all and (max-width: ($mqSm - 1)*1px) {
+      #{$prop}: $numberSp/$mqSpBase * 100vw;
+    }
+  }
+}
+
+//px vw 指定
+@mixin mqPcPxSpVw($prop, $numberPc, $numberSp) {
+  @if (type-of($numberPc) == list) {
+    @media all and (min-width: 640px) {
+      $pxNumber: ();
+      @for $i from 1 through length($numberPc) {
+        @if (type-of(nth($numberPc, $i)) == number) {
+          $pxNumber: append($pxNumber, nth($numberPc, $i) + px);
+        } @else {
+          $pxNumber: append($pxNumber, nth($numberPc, $i));
+        }
+      }
+      #{$prop}: $pxNumber;
+    }
+    @media all and (max-width: 640px) {
+      $vwNumber: ();
+      @for $i from 1 through length($numberSp) {
+        @if (type-of(nth($numberSp, $i)) == number) {
+          $vwNumber: append($vwNumber, nth($numberSp, $i) / 375 * 100vw);
+        } @else {
+          $vwNumber: append($vwNumber, nth($numberSp, $i));
+        }
+      }
+      #{$prop}: $vwNumber;
+    }
+  } @else {
+    @media all and (min-width: 640px) {
+      #{$prop}: $numberPc + px;
+    }
+    @media all and (max-width: 640px) {
+      #{$prop}: $numberSp/375 * 100vw;
+    }
+  }
+}
+
+//px px 指定
+@mixin mqPcPxSpPx($prop, $numberPc, $numberSp) {
+  @if (type-of($numberPc) == list) {
+    @media all and (min-width: 640px) {
+      $pxNumber: ();
+      @for $i from 1 through length($numberPc) {
+        @if (type-of(nth($numberPc, $i)) == number) {
+          $pxNumber: append($pxNumber, nth($numberPc, $i) + px);
+        } @else {
+          $pxNumber: append($pxNumber, nth($numberPc, $i));
+        }
+      }
+      #{$prop}: $pxNumber;
+    }
+    @media all and (max-width: 640px) {
+      $vwNumber: ();
+      @for $i from 1 through length($numberSp) {
+        @if (type-of(nth($numberSp, $i)) == number) {
+          $vwNumber: append($vwNumber, nth($numberSp, $i) + px);
+        } @else {
+          $vwNumber: append($vwNumber, nth($numberSp, $i));
+        }
+      }
+      #{$prop}: $vwNumber;
+    }
+  } @else {
+    @media all and (min-width: 640px) {
+      #{$prop}: $numberPc + px;
+    }
+    @media all and (max-width: 640px) {
+      #{$prop}: $numberSp + px;
+    }
+  }
+}
+
+// ==========================================
+
+// 想定する画面サイズを超えたとき
+@mixin mqExceed($size) {
+  @media (min-width: $size) {
+    @content;
+  }
+}
+// 想定する画面サイズ以下のとき
+@mixin mqSmaller($size) {
+  @media (max-width: $size) {
+    @content;
+  }
+}
+
+$easeInSine: cubic-bezier(0.47, 0, 0.745, 0.715);
+$easeInQuart: cubic-bezier(0.895, 0.03, 0.685, 0.22);
+
+$easeInExpo: cubic-bezier(0.95, 0.05, 0.795, 0.035);
+$easeOutExpo: cubic-bezier(0.19, 1, 0.22, 1);
+$easeInOutExpo: cubic-bezier(1, 0, 0, 1);
+
+$easeInOutSine: cubic-bezier(0.445, 0.05, 0.55, 0.95);
+$easeInOutQuad: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+$easeInOutQuart: cubic-bezier(0.77, 0, 0.175, 1);
+
+$easeOutSine: cubic-bezier(0.39, 0.575, 0.565, 1);
+$easeOutQuad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+$easeOutExpo: cubic-bezier(0.19, 1, 0.22, 1);
+$easeOutQuart: cubic-bezier(0.165, 0.84, 0.44, 1);
+$easeOutQuint: cubic-bezier(0.23, 1, 0.32, 1);
+$easeoriginal: cubic-bezier(0.18, 1.01, 0.29, 1.04);
+
+// スプライト用画像レスポンシブ仕様
+@mixin sprite-responsive($sprite) {
+  $sheet-w: nth($sprite, 7);
+  $sheet-h: nth($sprite, 8);
+  $sprite-w: nth($sprite, 5);
+  $sprite-h: nth($sprite, 6);
+  $offset-x: nth($sprite, 1);
+  $offset-y: nth($sprite, 2);
+  $bg-path: nth($sprite, 9);
+
+  // テキストを隠す
+  white-space: nowrap;
+  text-indent: 100%;
+  overflow: hidden;
+  font-size: 0;
+
+  background-image: url($bg-path);
+  background-size: ($sheet-w / $sprite-w * 100 + 0%)
+    ($sheet-h / $sprite-h * 100+ 0%);
+  background-position: ($offset-x / ($sheet-w - $sprite-w) * 100 + 0%)
+    ($offset-y / ($sheet-h - $sprite-h) * 100 + 0%);
+
+  &:after {
+    content: "";
+    display: block;
+    padding-top: ($sprite-h / $sprite-w * 100 + 0%);
+  }
+}

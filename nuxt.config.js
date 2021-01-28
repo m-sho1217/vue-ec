@@ -20,6 +20,13 @@ export default {
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
   css: [
+    '@/assets/css/common.scss',
+    '@/assets/css/_animation.scss',
+    '@/assets/css/_base.scss',
+    '@/assets/css/layout.scss',
+    '@/assets/css/_mixin.scss',
+    '@/assets/css/_parts.scss',
+    '@/assets/css/_utility.scss',
   ],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)

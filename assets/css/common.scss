@@ -1,0 +1,22 @@
+@import "./_mixin";
+
+body {
+  height: 100vh;
+}
+
+.wrap {
+  width: 960px;
+  margin: 0 auto;
+  padding-top: 54px;
+}
+
+.title {
+  text-align: center;
+  margin: 32px auto;
+  font-weight: bold;
+}
+
+.name, .price {
+  color: #333;
+}
+

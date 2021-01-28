@@ -1,0 +1,22 @@
+@import "./_mixin";
+
+#HOME {
+  .item-holder {
+    margin-bottom: 64px;
+  }
+  .item-container {
+    margin: 10px auto;
+    width: 30%;
+    .name {
+      margin-top: 10px;
+      text-align: center;
+      font-weight: bold;
+    }
+    .price {
+      text-align: center;
+    }
+  }
+  p {
+    margin: 0;
+  }
+}

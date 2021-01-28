@@ -1,0 +1,18 @@
+@import "./_mixin";
+
+.btn {
+  &:hover {
+    opacity: 0.7;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+}
+
+.uk-card-hover {
+  &:hover {
+    transition: all 0.3s;
+    text-decoration: none !important;
+  }
+}
+
+

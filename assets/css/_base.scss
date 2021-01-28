@@ -1,0 +1,257 @@
+@import "./_mixin";
+/* GROUND override
+***********************************/
+html {
+  font-size: 62.5%;
+  &.mobile {
+    scroll-behavior: smooth;
+  }
+}
+$textColor: #000;
+body {
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  // letter-spacing: 50/1000*1em;
+  line-height: 1.6;
+  font-family: $fontFamilySet1;
+  font-size: 1.4rem;
+  position: relative;
+  color: $textColor;
+  padding: 0;
+  margin: 0;
+  background-color: rgb(250, 250, 250);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  & :not(.article-text) & {
+    margin: 0;
+  }
+}
+p {
+  & :not(.article-text) & {
+    margin: 0;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: $textColor;
+  outline: none;
+}
+a:focus {
+  outline: none;
+}
+a:hover {
+  text-decoration: none;
+  color: $textColor;
+}
+a:visited {
+  // color: initial;
+}
+i {
+  display: inline-block;
+}
+ul {
+  padding: 0;
+  margin: 0;
+}
+li {
+  list-style: none;
+}
+figure {
+  margin: 0;
+}
+img {
+  width: 100%;
+  backface-visibility: hidden;
+  vertical-align: top;
+  height: auto;
+  html.chrome.desktop & {
+    backface-visibility: unset;
+  }
+}
+canvas,
+video {
+  vertical-align: top;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
+a {
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0.5);
+  -webkit-appearance: none;
+}
+
+// form reset
+input,
+button,
+textarea,
+select {
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
+  border-radius: 0;
+  outline: none;
+  appearance: none;
+  font-family: inherit;
+  font-weight: inherit;
+  color: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+  backface-visibility: hidden;
+}
+input:focus,
+textarea:focus,
+input[type]:focus,
+.uneditable-input:focus {
+  outline: 0;
+  box-shadow: none;
+  border: none;
+  background-color: transparent;
+}
+// 入力系 の input
+select,
+input[type="text"],
+input[type="search"],
+input[type="tel"],
+input[type="url"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="file"],
+input[type="date"],
+textarea,
+select:focus,
+input[type="text"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+input[type="url"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus,
+input[type="file"]:focus,
+input[type="date"]:focus,
+textarea:focus {
+  padding: 12px;
+  border: none;
+  background-color: #fff;
+  width: 100%;
+  height: 60px;
+  @include mqPcVwSpVw(font-size, 20, 10);
+  @include mqSmaller(768px) {
+    font-size: 16px;
+    width: 100%;
+  }
+}
+
+// チェックボックスとラジオボタン
+input[type="checkbox"],
+input[type="radio"],
+input[type="checkbox"]:focus,
+input[type="radio"]:focus {
+  width: 20px;
+  height: 20px;
+  @include mqPcVwSpVw(margin-right, 10, 5);
+  border: none;
+  background-color: #fff;
+  position: relative;
+  &[type="radio"] {
+    border-radius: 20px;
+  }
+}
+input[type="checkbox"]:checked,
+input[type="radio"]:checked {
+  &:before {
+    background-color: #404040;
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: calc(100% - 4px);
+    height: calc(100% - 4px);
+    vertical-align: bottom;
+  }
+  &[type="radio"] {
+    border-radius: 20px;
+    &:before {
+      border-radius: 20px;
+    }
+  }
+}
+button {
+  cursor: pointer;
+  &:disabled {
+    cursor: default;
+  }
+}
+.isjoin-checkbox {
+  @include mqPcVwSpVw(top, 5, 3);
+}
+
+picture {
+  display: block;
+}
+
+.ws-pl {
+  white-space: pre-line;
+  word-wrap: break-word;
+} // 改行あり
+.hide {
+  display: none;
+}
+.wrap {
+  position: relative;
+}
+// .wrap,
+// header.header {
+//   transition: opacity 0.8s $easeOutSine;
+// }
+
+.bold {
+  font-weight: bold;
+}
+.btn {
+  display: inline-block;
+}
+.vm--container {
+  .vm--modal {
+    background-color: transparent;
+  }
+}
+.modal-body {
+  padding: 0;
+  width: 105vw;
+  height: auto;
+}
+.wrap {
+  opacity: unset !important;
+}
+#loco {
+  transition: opacity 0.5s;
+  &.standby {
+    opacity: 0;
+  }
+}
+.ff-Helvetica {
+  font-family: Helvetica;
+}
+
+a {
+  &:hover {
+    text-decoration: none !important;
+  }
+}
