@@ -4,6 +4,7 @@
     <div class="title">
       <h1>商品詳細</h1>
     </div>
+    <div class="container"></div>
     {{item}}
   </div>
 

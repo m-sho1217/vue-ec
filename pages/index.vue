@@ -4,7 +4,7 @@
     <div class="title">
       <h1>商品一覧</h1>
     </div>
-    <div class="item-holder uk-child-width-1-2@s uk-grid-match" uk-grid>
+    <div class="container uk-child-width-1-2@s uk-grid-match" uk-grid>
       <div class="item-container btn uk-card uk-card-default uk-card-hover uk-card-body" v-for="item_id in Object.keys(items)" :key="item_id">
         <nuxt-link :to="'/detail/'+ item_id">
           <img :src="items[item_id].image_url" alt="商品画像">
