@@ -22,10 +22,40 @@
   .uk-inline {
     width: 100%;
   }
+  .uk-grid {
+    margin-left: 0;
+  }
+  .uk-search-input {
+    border: 1px solid lightgrey;
+  }
   .float-right {
     float: right;
   }
   p {
     margin: 0;
+  }
+}
+
+#ITEM_DETAIL {
+  .two-col {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 64px;
+  }
+  .col-left {
+    width: 45%;
+  }
+  .col-right {
+    width: 45%;
+    .name {
+      font-weight: bold;
+    }
+    .price {
+      font-weight: bold;
+    }
+    .tax {
+      font-weight: nomal;
+      font-size: 12px;
+    }
   }
 }

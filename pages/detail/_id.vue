@@ -1,11 +1,28 @@
 <template>
-  <div class="wrap">
+  <div id="ITEM_DETAIL">
     <Header></Header>
-    <div class="title">
-      <h1>商品詳細</h1>
+    <div class="wrap">
+      <div class="title">
+        <h1>商品詳細</h1>
+      </div>
+      <div class="container">
+        <div class="two-col">
+          <div class="col-left">
+            <span class="img-holder">
+              <img :src="item.image_url" alt="">
+            </span>
+          </div>
+          <div class="col-right">
+            <p class="name">{{ item.name }}</p>
+            <p class="price">
+              {{ item.price }}円<span class="tax"> 税込</span>
+            </p>
+             <button class="btn uk-button uk-button-secondary uk-button-large">カートに入れる</button>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="container"></div>
-    {{item}}
+    <Footer></Footer>
   </div>
 
 </template>
@@ -20,7 +37,7 @@ doc.data()を格納する
 export default {
   data() {
     return {
-      item: null
+      item: {}
     }
   },
   created() {
@@ -46,7 +63,5 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
 
-</style>
 

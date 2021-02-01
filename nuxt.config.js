@@ -1,3 +1,5 @@
+import * as FontAwesome from './build/fontawesome'
+
 export default {
   // Disable server-side rendering (https://go.nuxtjs.dev/ssr-mode)
   ssr: false,
@@ -21,11 +23,9 @@ export default {
   // Global CSS (https://go.nuxtjs.dev/config-css)
   css: [
     '@/assets/css/common.scss',
-    '@/assets/css/_animation.scss',
     '@/assets/css/_base.scss',
     '@/assets/css/layout.scss',
     '@/assets/css/_mixin.scss',
-    '@/assets/css/_parts.scss',
     '@/assets/css/_utility.scss',
   ],
 
@@ -38,6 +38,7 @@ export default {
 
   // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
   buildModules: [
+    ['@nuxtjs/fontawesome', { component: 'fontAwesome', suffix: true }]
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
@@ -50,12 +51,21 @@ export default {
     '@nuxt/content',
     '@nuxtjs/dotenv'
   ],
+
   env: {
     FIREBASE_API_KEY: process.env.FIREBASE_API_KEY,
     FIREBASE_AUTH_DOMAIN: process.env.FIREBASE_AUTH_DOMAIN,
     FIREBASE_DATABASEURL: process.env.FIREBASE_DATABASEURL,
     FIREBASE_PROJECTID: process.env.FIREBASE_PROJECTID,
     FIREBASE_STORAGEBUCKET: process.env.FIREBASE_STORAGEBUCKET,
+  },
+
+  fontawesome: {
+    icons: {
+      solid: FontAwesome.solid,
+      regular: FontAwesome.regular,
+      brands: FontAwesome.brands
+    }
   },
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
