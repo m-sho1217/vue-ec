@@ -1,0 +1,34 @@
+#HOME .container {
+  margin-bottom: 64px;
+}
+
+#HOME .item-container {
+  margin: 10px auto;
+  width: 30%;
+}
+
+#HOME .item-container .name {
+  margin-top: 10px;
+  text-align: center;
+  font-weight: bold;
+}
+
+#HOME .item-container .price {
+  text-align: center;
+}
+
+#HOME .search {
+  margin: 30px 0px;
+}
+
+#HOME .uk-inline {
+  width: 100%;
+}
+
+#HOME .float-right {
+  float: right;
+}
+
+#HOME p {
+  margin: 0;
+}
